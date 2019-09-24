@@ -146,6 +146,14 @@ df_xr_u <- df_xr_b %>%
 
 df_umux <- rbind(df_xr_u,df_pt_u)
 
+df_umux %>% 
+  mutate(umux.lite = (umux_req+umux_ease)/2) %>%
+  group_by(product) %>%
+  summarize(umux_req=mean(umux_req),
+            umux_ease = mean(umux_ease),
+            umux.lite = mean(umux.lite)
+            )
+
 #visualizing ----
 
 #time
